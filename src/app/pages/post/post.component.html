@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let result of searchResults | async; index as i">
+        <tr *ngFor="let result of searchResults | index as i">
           <th scope="row">{{ i + 1 }}</th>
           <td>
            

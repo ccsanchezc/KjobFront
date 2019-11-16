@@ -57,13 +57,13 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-align-center",
     class: ""
   },
-  {
-    path: "/rtl",
-    title: "RTL Support",
-    rtlTitle: "ار تي ال",
-    icon: "icon-world",
-    class: ""
-  },
+ // {
+  //  path: "/rtl",
+  //  title: "RTL Support",
+ //   rtlTitle: "ار تي ال",
+  //  icon: "icon-world",
+  //  class: ""
+ // },
   {
     path: "/post",
     title: "Post",

@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , PipeTransform} from '@angular/core';
 import { PostJobs } from '../../post-jobs.model';
 import { PostService } from '../../post.service';
  
 import { ActivatedRoute, ParamMap, Router } from '@angular/router'
+
+//table
+
+import { DecimalPipe } from '@angular/common';
+import { FormControl } from '@angular/forms';
+
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -44,4 +52,26 @@ export class PostComponent implements OnInit {
 
 }
 
+}
+
+function search(text: string, pipe: PipeTransform): PostJobs[] {
+  return this.searchResults.filter(jobs => {
+    const term = text.toLowerCase();
+    return jobs.title.toLowerCase().includes(term)
+        || jobs.description.toLowerCase().includes(term)
+        || jobs.remote_ok.toLowerCase().includes(term);
+  });
+}
+// tabla
+export class NgbdTableFiltering {
+
+  countries$: Observable<PostJobs[]>;
+  filter = new FormControl('');
+
+  constructor(pipe: DecimalPipe) {
+    this.countries$ = this.filter.valueChanges.pipe(
+      startWith(''),
+      map(text => search(text, pipe))
+    );
+  }
 }

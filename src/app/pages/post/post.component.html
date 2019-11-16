@@ -26,14 +26,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let country of countries$ | async; index as i">
+        <tr *ngFor="let result of searchResults | async; index as i">
           <th scope="row">{{ i + 1 }}</th>
           <td>
            
-            <ngb-highlight [result]="country.title" [term]="filter.value"></ngb-highlight>
+            <ngb-highlight [result]="result.title" [term]="filter.value"></ngb-highlight>
           </td>
-          <td><ngb-highlight [result]="country.description" [term]="filter.value"></ngb-highlight></td>
-          <td><ngb-highlight [result]="country.remote_ok " [term]="filter.value"></ngb-highlight></td>
+          <td><ngb-highlight [result]="result.description" [term]="filter.value"></ngb-highlight></td>
+          <td><ngb-highlight [result]="result.remote_ok " [term]="filter.value"></ngb-highlight></td>
         </tr>
         </tbody>
       </table>

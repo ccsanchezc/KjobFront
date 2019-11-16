@@ -10,4 +10,4 @@ export interface PostJobs {
     "apply_url" : string 
 }
    
-}[]
+}

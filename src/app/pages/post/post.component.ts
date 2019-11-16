@@ -9,7 +9,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { DecimalPipe } from '@angular/common';
 import { FormControl } from '@angular/forms';
 
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-post',
@@ -18,12 +18,16 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class PostComponent implements OnInit {
   searchResults: PostJobs ;
-  resultadosfinal : Array<PostJobs> [] = [] 
+  resultadosfinal : PostJobs  ;
   searchQuery: string;
   displayQuery: string;
+  countries$: Observable<PostJobs[]>;
+  filter = new FormControl('');
   constructor(private PostService: PostService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+      
+     }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -36,6 +40,7 @@ export class PostComponent implements OnInit {
    //  this.route.data.subscribe((result) => {
      //  this.title = result.title
       //});
+
   }
   PostSearch = () =>{
   this.PostService.Post(this.searchQuery).then((response)=>{
@@ -43,7 +48,7 @@ export class PostComponent implements OnInit {
     this.displayQuery = this.searchQuery;
     //alert('Total repositories found: '+response.total_count);
      console.log(response.data);
-    
+    this.countries$ = Observable.apply(response);
   },(error) => {
    // alert('Error: '+ error.statusText);
    
@@ -54,24 +59,5 @@ export class PostComponent implements OnInit {
 
 }
 
-function search(text: string, pipe: PipeTransform): PostJobs[] {
-  return this.searchResults.filter(jobs => {
-    const term = text.toLowerCase();
-    return jobs.title.toLowerCase().includes(term)
-        || jobs.description.toLowerCase().includes(term)
-        || jobs.remote_ok.toLowerCase().includes(term);
-  });
-}
 // tabla
-export class NgbdTableFiltering {
-
-  countries$: Observable<PostJobs[]>;
-  filter = new FormControl('');
-
-  constructor(pipe: DecimalPipe) {
-    this.countries$ = this.filter.valueChanges.pipe(
-      startWith(''),
-      map(text => search(text, pipe))
-    );
-  }
-}
+ 

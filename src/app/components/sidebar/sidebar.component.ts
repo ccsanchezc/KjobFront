@@ -63,8 +63,14 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "ار تي ال",
     icon: "icon-world",
     class: ""
+  },
+  {
+    path: "/post",
+    title: "Post",
+    rtlTitle: "ار تي ال",
+    icon: "icon-world",
+    class: ""
   }
-  
 ];
 
 @Component({

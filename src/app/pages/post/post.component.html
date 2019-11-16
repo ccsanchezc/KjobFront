@@ -1,19 +1,39 @@
-<h3>{{searchQuery}}</h3>
-<input name="query" placeholder="Enter search" [(ngModel)]="searchQuery"/>
-<button (click) = "PostSearch()">Submit</button>
-<div *ngIf="displayQuery != 'error'; else elseBlock">
-<ul class = "list">
-    <li class ="list_item" *ngFor="let result of searchResults">
-        <a [href] = "result.title">
-             
-            <h4 class= "title"> {{result.description}}
-                <small>by {{result.location | uppercase}} </small>
-            </h4>
-            <p class = "description">{{result.url}}</p>
-            <p>Created on: {{result.remote_ok }}</p>
-        </a>
 
-    </li>
-</ul>
-</div>
-<ng-template #elseBlock>No hay datos</ng-template> 
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class=" title">100 Awesome Nucleo Icons</h5>
+            <p class=" category">
+              Handcrafted by our friends from
+              <a href="https://nucleoapp.com/?ref=1712"> NucleoApp </a>
+            </p>
+         
+                
+        <h3>{{searchQuery}}</h3>
+        <input name="query" placeholder="Enter search" [(ngModel)]="searchQuery"/>
+        <button (click) = "PostSearch()">Submit</button>
+        <div *ngIf="displayQuery != 'error'; else elseBlock">
+            <ul class = "list">
+                <li class ="list_item" *ngFor="let result of searchResults">
+                    <a [href] = "result.title">
+                        
+                        <h4 class= "title"> {{result.description}}
+                            <small>by {{result.location | uppercase}} </small>
+                        </h4>
+                        <p class = "description">{{result.url}}</p>
+                        <p>Created on: {{result.remote_ok }}</p>
+                    </a>
+
+        </li>
+            </ul>
+            </div>
+            <ng-template #elseBlock>No hay datos</ng-template> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

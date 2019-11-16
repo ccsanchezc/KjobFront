@@ -15,7 +15,7 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-
+import { PostComponent } from '../../pages/post/post.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,6 +32,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     TypographyComponent,
     NotificationsComponent,
     MapComponent,
+    PostComponent
     // RtlComponent
   ]
 })

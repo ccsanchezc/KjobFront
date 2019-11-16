@@ -13,9 +13,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
-import { PostComponent } from './pages/post/post.component';
+//
 
+import { PostService} from  './post.service';
 @NgModule({
+  declarations: [
+    AppComponent, 
+    AdminLayoutComponent, 
+    AuthLayoutComponent 
+    //PostComponent 
+  ],
   imports: [
     BrowserAnimationsModule,
     FormsModule,
@@ -26,8 +33,9 @@ import { PostComponent } from './pages/post/post.component';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, PostComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+ 
+  providers: [PostService],
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule {}

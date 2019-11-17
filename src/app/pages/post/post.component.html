@@ -16,14 +16,14 @@
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Country</th>
+          <th scope="col">Job Name</th>
           <th scope="col">Area</th>
           <th scope="col">Population</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let result of searchResults ">
-         
+        <tr *ngFor="let result of searchResults; index as i">
+          <th scope="row">{{ i + 1 }}</th>
           <td>
            
             <ngb-highlight [result]="result.title" [term]="filter.value"></ngb-highlight>

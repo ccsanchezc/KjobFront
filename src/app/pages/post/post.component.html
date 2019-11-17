@@ -22,8 +22,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let result of searchResults | index as i">
-          <th scope="row">{{ i + 1 }}</th>
+        <tr *ngFor="let result of searchResults ">
+         
           <td>
            
             <ngb-highlight [result]="result.title" [term]="filter.value"></ngb-highlight>

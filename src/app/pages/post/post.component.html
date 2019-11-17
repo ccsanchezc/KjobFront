@@ -17,8 +17,12 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Job Name</th>
-          <th scope="col">Area</th>
-          <th scope="col">Population</th>
+          <th scope="col">Job Description</th>
+          <th scope="col">Job URL</th>
+          <th scope="col">Job type</th>
+          <th scope="col">Job location</th>
+          <th scope="col">Job remote</th>
+          <th scope="col">Job Apply url</th>
         </tr>
         </thead>
         <tbody>
@@ -29,8 +33,12 @@
             <ngb-highlight [result]="result.title" [term]="filter.value"></ngb-highlight>
           </td>
           <td><ngb-highlight [result]="result.description" [term]="filter.value"></ngb-highlight></td>
+          <td><ngb-highlight [result]="result.url " [term]="filter.value"></ngb-highlight></td>
+          <td><ngb-highlight [result]="result.job_type " [term]="filter.value"></ngb-highlight></td>
+          <td><ngb-highlight [result]="result.location " [term]="filter.value"></ngb-highlight></td>
           <td><ngb-highlight [result]="result.remote_ok " [term]="filter.value"></ngb-highlight></td>
-        </tr>
+          <td><ngb-highlight [result]="result.apply_url " [term]="filter.value"></ngb-highlight></td>
+          </tr>
         </tbody>
       </table>
        

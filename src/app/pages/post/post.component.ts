@@ -40,6 +40,7 @@ export class PostComponent implements OnInit {
    //  this.route.data.subscribe((result) => {
      //  this.title = result.title
       //});
+      //prueba
 
   }
   PostSearch = () =>{
